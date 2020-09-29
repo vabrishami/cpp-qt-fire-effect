@@ -16,6 +16,6 @@ You need to have QT 5+ installed on your system to compile the code.
 ```sh
 https://github.com/vabrishami/cpp-qt-fire-effect.git
 cd cpp-qt-fire-effect
-qmake
+qmake fire_flame_prg.pro
 make
 ```
