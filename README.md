@@ -11,7 +11,7 @@ A C++ code to generate a fire effect and show it graphically using QT. The GUI h
 # Prerequisites 
 You need to have QT 5+ installed on your system to compile the code.
 
-### Compiling the code
+# Compiling the code
 
 ```sh
 https://github.com/vabrishami/cpp-qt-fire-effect.git
