@@ -6,31 +6,31 @@ FirePlace::FirePlace(int w, int h)
 {
     fireData = new Fire(w, h);
     image = QImage(w, h, QImage::Format_RGB888);
-    setColorPallete();
+    setColorpalette();
     initWidgets();
     connectWidgets();
     createLayeout();
     timer->start(50);
 }
 
-/* This method initializes color table by generating
+/* This method initializes the color table by generating
 fire like colors in the HSL space.
 Lightness is 0..255 for x=0..128, and 255 for x=128..255*/
-void FirePlace::setColorPallete()
+void FirePlace::setColorpalette()
 {
     colorTable.clear();
-    for (int x = 0; x < palleteSize; x++)
+    for (int x = 0; x < paletteSize; x++)
 
         colorTable.push_back((QColor::fromHslF((x / 3) / 255.0, 1, std::min(255, x * 2) / 255.0)).rgb());
 }
 
-/* This method can make different palletes depends on color
+/* This method can make different palettes depends on color
 stops defined by a vector. */
-void FirePlace::setColorPallete(const QVector<QRgb>& stops)
+void FirePlace::setColorpalette(const QVector<QRgb>& stops)
 {
     colorTable.clear();
     int vectorSize = stops.size() - 1;
-    int range = palleteSize / vectorSize;
+    int range = paletteSize / vectorSize;
     int r1, r2, g1, g2, b1, b2;
     double rf, bf, gf;
     for (int i = 0; i < vectorSize; i++) {
@@ -82,7 +82,7 @@ void FirePlace::connectWidgets()
     connect(rightWindButton, SIGNAL(clicked()), this, SLOT(rightWind()));
     connect(leftWindButton, SIGNAL(clicked()), this, SLOT(leftWind()));
     connect(noWindButton, SIGNAL(clicked()), this, SLOT(noWind()));
-    connect(colorButton, SIGNAL(clicked()), this, SLOT(chooseRandomPallete()));
+    connect(colorButton, SIGNAL(clicked()), this, SLOT(chooseRandompalette()));
 }
 
 void FirePlace::createLayeout()
@@ -102,14 +102,15 @@ void FirePlace::createLayeout()
     setLayout(layout);
     setWindowTitle(tr("Fire Flame Effect"));
 }
+
 // Randomly chooses one of the ready pallaetes
-void FirePlace::chooseRandomPallete()
+void FirePlace::chooseRandompalette()
 {
     QVector<QRgb> stops;
     int randomNum = rand() % 3;
     switch (randomNum) {
     case 0:
-        setColorPallete();
+        setColorpalette();
         break;
     case 1: // Color effect 1: Black - Red - Green
         stops.push_back((QColor(0, 0, 0).rgb()));
@@ -119,7 +120,7 @@ void FirePlace::chooseRandomPallete()
         stops.push_back((QColor(255, 255, 50).rgb()));
         stops.push_back((QColor(255, 255, 0).rgb()));
         stops.push_back((QColor(255, 255, 0).rgb()));
-        setColorPallete(stops);
+        setColorpalette(stops);
         break;
     case 2: // Color effect 1: Black - Blue - Red
         stops.push_back((QColor(0, 0, 0).rgb()));
@@ -128,7 +129,7 @@ void FirePlace::chooseRandomPallete()
         stops.push_back((QColor(255, 255, 255).rgb()));
         stops.push_back((QColor(255, 255, 255).rgb()));
         stops.push_back((QColor(255, 255, 255).rgb()));
-        setColorPallete(stops);
+        setColorpalette(stops);
     default:
         break;
     }
@@ -149,6 +150,7 @@ void FirePlace::pause()
 {
     timer->stop();
 }
+
 void FirePlace::start()
 {
     timer->start(50); // 20 frames per second
@@ -175,14 +177,17 @@ void FirePlace::rightWind()
 {
     fireData->setWindDirection(EAST);
 }
+
 void FirePlace::leftWind()
 {
     fireData->setWindDirection(WEST);
 }
+
 void FirePlace::noWind()
 {
     fireData->setWindDirection(NOWIND);
 }
+
 void FirePlace::makeFireImg()
 {
     fireData->startFire();

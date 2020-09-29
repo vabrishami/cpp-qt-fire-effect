@@ -25,7 +25,7 @@ void Fire::allocateArray()
     }
 }
 
-/* Randomly assigned lowest and highest intensity 
+/* Randomly assigns lowest and highest intensity 
 values to the last row of fire array*/
 void Fire::startFire()
 {
@@ -73,7 +73,7 @@ int Fire::getHeight()
     return height;
 }
 
-/* This method compute the intensity index by averaging 
+/* This method computes the intensity index by averaging 
 {(X, Y+1), (X+1, Y+1), (X-1, Y+1), (X, Y+2). Wind will 
 remove even  (X+1, Y+1) or (X-1, Y+1) depending on the 
 wind direction.*/

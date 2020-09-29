@@ -34,14 +34,14 @@ private slots:
     void rightWind();
     void leftWind();
     void noWind();
-    void chooseRandomPallete();
+    void chooseRandompalette();
 
 private:
     // Timer for updaing the fire
     QTimer* timer;
     // Fire image to be shown
     QImage image;
-    // Fire color pallete
+    // Fire color palette
     QVector<QRgb> colorTable;
     // Label to show QImage in
     QLabel* imageLabel;
@@ -61,15 +61,15 @@ private:
     Fire* fireData; // Fire object
 
     // Methods --------------------------------------------------------- */
-    // This method sets the color palletes different than real fire color
-    void setColorPallete(const QVector<QRgb>& stops);
-    // This method sets the color palletes for real fire color
-    void setColorPallete();
+    // This method sets the color palettes different than real fire color
+    void setColorpalette(const QVector<QRgb>& stops);
+    // This method sets the color palettes for real fire color
+    void setColorpalette();
     // Method to assign the image array to Qimage (image)
     void makeFireImg();
-    // Initialize the objects
+    // Initializes the objects
     void initWidgets();
-    // Connect events to methods
+    // Connects events to methods
     void connectWidgets();
     void createLayeout();
 };
