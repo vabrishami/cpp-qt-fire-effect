@@ -73,9 +73,9 @@ int Fire::getHeight()
     return height;
 }
 
-/* This method computes the intensity index by averaging 
+/* This method computes the intensity indices by averaging 
 {(X, Y+1), (X+1, Y+1), (X-1, Y+1), (X, Y+2). Wind will 
-remove even  (X+1, Y+1) or (X-1, Y+1) depending on the 
+remove either  (X+1, Y+1) or (X-1, Y+1) depending on the 
 wind direction.*/
 void Fire::updateFire()
 {
@@ -93,7 +93,7 @@ void Fire::updateFire()
             // If WEST just use (X+1, Y+1) as third value
             if (windDirection == WEST)
                 fireArray[i][j] += fireArray[height1][width1];
-            // If WEST just use (X-1, Y+1) as third value
+            // If EAST just use (X-1, Y+1) as third value
             else if (windDirection == EAST)
                 fireArray[i][j] += fireArray[height1][widthM1];
             else
