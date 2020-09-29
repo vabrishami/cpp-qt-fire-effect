@@ -9,7 +9,7 @@ A C++ code to generate a fire effect and show it graphically using QT. The GUI h
   - Choose random color button: By clicking the button, each time a different color is assigned to fire.
 
 # Prerequisites 
-You need to have QT 5+ installed on your system to compile the code.
+You need to have QT 5+ installed on your system to compile the code (tested with QMake version 3.1 and Qt version 5.9.).
 
 # Compiling the code
 
