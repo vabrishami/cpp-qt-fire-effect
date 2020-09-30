@@ -138,7 +138,7 @@ void FirePlace::chooseRandompalette()
 void FirePlace::quit()
 {
     QMessageBox messageBox;
-    messageBox.setWindowTitle(tr("Notepad"));
+    messageBox.setWindowTitle(tr("Fire Effect"));
     messageBox.setText(tr("Do you really want to quit?"));
     messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     messageBox.setDefaultButton(QMessageBox::No);
